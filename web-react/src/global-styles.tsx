@@ -20,8 +20,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-    background-color: ${({ theme }) => (theme.mode === 'light' ? '#ffffff' : '#000000')};
-    color: ${({ theme }) => (theme.mode === 'light' ? '#333' : '#ffffff')};
+    background-color: ${({ theme }) => (theme.mode === 'light' ? 'var(--white-theme)' : 'var(--black-theme)')};
+    color: ${({ theme }) => (theme.mode === 'light' ? 'var(--black-theme)' : 'var(--white-theme)')};
     transition: background-color 0.25s, color 0.25s;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
