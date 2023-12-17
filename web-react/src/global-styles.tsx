@@ -1,6 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 import { css } from 'styled-components';
 
+export const themeFirstColors = css`
+  color: ${({ theme }) => (theme.mode === 'light' ? 'var(--white-theme)' : 'var(--black-theme)')};
+  background-color: ${({ theme }) => (theme.mode === 'light' ? 'var(--black-theme)' : 'var(--white-theme)')};
+  transition: background-color 0.25s, color 0.25s, transform 0.3s ease;
+`
+
+export const themeSecondColors = css`
+  background-color: ${({ theme }) => (theme.mode === 'light' ? 'var(--white-theme)' : 'var(--black-theme)')} !important;
+  color: ${({ theme }) => (theme.mode === 'light' ? 'var(--black-theme)' : 'var(--white-theme)')} !important;
+  transition: background-color 0.25s, color 0.25s;
+`
+
 const GlobalStyle = createGlobalStyle`
   :root {
     --main-background: #242424;
@@ -20,9 +32,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-    background-color: ${({ theme }) => (theme.mode === 'light' ? 'var(--white-theme)' : 'var(--black-theme)')};
-    color: ${({ theme }) => (theme.mode === 'light' ? 'var(--black-theme)' : 'var(--white-theme)')};
-    transition: background-color 0.25s, color 0.25s;
+    ${themeSecondColors};
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -66,18 +76,6 @@ const GlobalStyle = createGlobalStyle`
   p {
     font-size: 1.2rem;
   }
-`
-
-export const themeFirstColors = css`
-  color: ${({ theme }) => (theme.mode === 'light' ? 'var(--white-theme)' : 'var(--black-theme)')};
-  background-color: ${({ theme }) => (theme.mode === 'light' ? 'var(--black-theme)' : 'var(--white-theme)')};
-  transition: background-color 0.25s, color 0.25s, transform 0.3s ease;
-`
-
-export const themeSecondColors = css`
-  background-color: ${({ theme }) => (theme.mode === 'light' ? 'var(--white-theme)' : 'var(--black-theme)')} !important;
-  color: ${({ theme }) => (theme.mode === 'light' ? 'var(--black-theme)' : 'var(--white-theme)')} !important;
-  transition: background-color 0.25s, color 0.25s;
 `
 
 export default GlobalStyle;
