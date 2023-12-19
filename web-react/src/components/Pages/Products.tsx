@@ -3,7 +3,6 @@ import { ColumnsType } from 'antd/es/table';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { themeFirstColors, themeSecondColors } from '../../global-styles';
 
 interface DataType {
     country: string;
@@ -15,17 +14,23 @@ const TableStyle = styled(Table)`
     text-align: center;
 
     .ant-table-cell {
-        ${themeFirstColors};
+        background-color: var(--theme-text);
+        color: var(--theme);
+        transition: background-color 0.25s, color 0.25s;
     }
 
-    .ant-table-cell-row-hover {
-        ${themeSecondColors};
+    .ant-table-row:hover .ant-table-cell {
+        background-color: var(--theme);
+        color: var(--theme-text);
+        transition: background-color 0.25s, color 0.25s;
     }
 `
 
 const TableButtons = styled(Button)` 
     &.ant-btn {
-        ${themeFirstColors};
+        background-color: var(--theme-text);
+        color: var(--theme);
+        transition: background-color 0.25s, color 0.25s;
     }
 `
 

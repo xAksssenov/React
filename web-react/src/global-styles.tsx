@@ -1,17 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { css } from 'styled-components';
-
-export const themeFirstColors = css`
-  color: ${({ theme }) => (theme.mode === 'light' ? 'var(--white-theme)' : 'var(--black-theme)')};
-  background-color: ${({ theme }) => (theme.mode === 'light' ? 'var(--black-theme)' : 'var(--white-theme)')};
-  transition: background-color 0.25s, color 0.25s, transform 0.3s ease;
-`
-
-export const themeSecondColors = css`
-  background-color: ${({ theme }) => (theme.mode === 'light' ? 'var(--white-theme)' : 'var(--black-theme)')} !important;
-  color: ${({ theme }) => (theme.mode === 'light' ? 'var(--black-theme)' : 'var(--white-theme)')} !important;
-  transition: background-color 0.25s, color 0.25s;
-`
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -24,15 +11,25 @@ const GlobalStyle = createGlobalStyle`
     --button-background-hover: #f9f9f9;
     --button-text: #ffffff;
     --button-text-hover: #000000;
-    --black-theme: black;
-    --white-theme: white;
+  }
+
+  html[data-theme=light] {
+		--theme: white;
+    --theme-text: black;
+  }
+
+  html[data-theme=dark] {
+		--theme: black;
+		--theme-text: white;
   }
 
   body {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-    ${themeSecondColors};
+    background-color: var(--theme);
+    color: var(--theme-text);
+    transition: background-color 0.25s, color 0.25s, transform 0.3s ease;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

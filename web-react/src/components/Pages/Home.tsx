@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { themeFirstColors } from "../../global-styles";
 
 interface StyledProps {
     ImgWidth?: string
@@ -10,7 +9,9 @@ interface StyledProps {
 const Home = styled.div`
     margin: 0 8vw;
     .home__p {
-        ${themeFirstColors};
+        background-color: var(--theme-text);
+        color: var(--theme);
+        transition: background-color 0.25s, color 0.25s;
         padding: 1em;
         border-radius: 2em;
     }

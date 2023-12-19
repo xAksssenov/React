@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import { CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE } from '../../routes/configs';
 import styled from 'styled-components';
-import { themeFirstColors, themeSecondColors } from '../../global-styles';
 
 interface NavbarProps {
-    isAuth: boolean;
-    setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
-    toggleTheme: () => void;
+  isAuth: boolean;
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleTheme: () => void;
 }
 
 const NavbarWrapper = styled.div`
@@ -15,12 +14,16 @@ const NavbarWrapper = styled.div`
   align-items: center;
   max-width: 100vw;
   padding: 1rem;
-  ${themeFirstColors}
+  background-color: var(--theme-text);
+  color: var(--theme);
+  transition: background-color 0.25s, color 0.25s;
 `
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  ${themeFirstColors}
+  background-color: var(--theme-text);
+  color: var(--theme);
+  transition: background-color 0.25s, color 0.25s, transform 0.3s ease;
   font-weight: bold;
 `
 
@@ -31,7 +34,9 @@ const NavButton = styled.button`
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  ${themeSecondColors}
+  background-color: var(--theme);
+  color: var(--theme-text);
+  transition: background-color 0.25s, color 0.25s;
   cursor: pointer;
 
   &:hover {
@@ -42,20 +47,20 @@ const NavButton = styled.button`
 `
 
 const Navbar: React.FC<NavbarProps> = ({ isAuth, setIsAuth, toggleTheme }) => {
-    const click = () => {
-        setIsAuth((prev) => !prev)
-    }
+  const click = () => {
+    setIsAuth((prev) => !prev)
+  }
 
-    return (
-        <NavbarWrapper>
-            <NavLink to={HOME_ROUTE}>Главная</NavLink>
-            <NavLink to={PRODUCTS_ROUTE}>Товары</NavLink>
-            <NavLink to={REVIEWS_ROUTE}>Отзывы</NavLink>
-            <NavLink to={CONTACTS_ROUTE}>Контакты</NavLink>
-            <NavButton onClick={toggleTheme}>Сменить тему</NavButton>
-            <NavButton onClick={click}>{isAuth ? 'Выйти' : 'Войти'}</NavButton>
-        </NavbarWrapper>
-    )
+  return (
+    <NavbarWrapper>
+      <NavLink to={HOME_ROUTE}>Главная</NavLink>
+      <NavLink to={PRODUCTS_ROUTE}>Товары</NavLink>
+      <NavLink to={REVIEWS_ROUTE}>Отзывы</NavLink>
+      <NavLink to={CONTACTS_ROUTE}>Контакты</NavLink>
+      <NavButton onClick={toggleTheme}>Сменить тему</NavButton>
+      <NavButton onClick={click}>{isAuth ? 'Выйти' : 'Войти'}</NavButton>
+    </NavbarWrapper>
+  )
 }
 
 export default Navbar;

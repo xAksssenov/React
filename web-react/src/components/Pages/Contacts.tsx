@@ -1,15 +1,18 @@
 import styled from "styled-components";
-import { themeFirstColors, themeSecondColors } from "../../global-styles";
 
 const Contacts = styled.div`
     margin: 0 33vw;
     border-radius: 2em;
     padding: 1vw 2vw;
-    ${themeFirstColors};
+    background-color: var(--theme-text);
+    color: var(--theme);
+    transition: background-color 0.25s, color 0.25s;
 `
 
 const ContactsButton = styled.button`
-    ${themeSecondColors};
+   background-color: var(--theme);
+   color: var(--theme-text);
+   transition: background-color 0.25s, color 0.25s;
 `
 
 export const ContactsPage = () => {
