@@ -2,17 +2,43 @@ import { Button, Table } from 'antd'
 import { ColumnsType } from 'antd/es/table';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 interface DataType {
     country: string;
     name: string;
 }
 
+const TableStyle = styled(Table)`
+    margin: 0 8vw;
+    text-align: center;
+
+    .ant-table-cell {
+        background-color: var(--theme-text);
+        color: var(--theme);
+        transition: background-color 0.25s, color 0.25s;
+    }
+
+    .ant-table-row:hover .ant-table-cell {
+        background-color: var(--theme);
+        color: var(--theme-text);
+        transition: background-color 0.25s, color 0.25s;
+    }
+`
+
+const TableButtons = styled(Button)` 
+    &.ant-btn {
+        background-color: var(--theme-text);
+        color: var(--theme);
+        transition: background-color 0.25s, color 0.25s;
+    }
+`
+
 const columns: ColumnsType<DataType> = [
     {
-        title: 'Name',
-        dataIndex: 'name',
-        key: 'name',
+        title: 'Страна',
+        dataIndex: 'country',
+        key: 'country',
     },
     {
         title: 'Название школы',
@@ -46,14 +72,12 @@ export const Products = () => {
     return (
         <>
             <h1>Контактная страница</h1>
-            <section className="table__items">
-                <Table dataSource={dataSource} columns={columns} pagination={false} />
-                <div className="buttons__item">
-                    <Button onClick={(() => setPage(() => page - 1))} disabled={!(page - 1)}>Назад</Button>
-                    <Button>{page}</Button>
-                    <Button onClick={(() => setPage(() => page + 1))}>Вперед</Button>
-                </div>
-            </section>
+            <TableStyle dataSource={dataSource} columns={columns} pagination={false} />
+            <div>
+                <TableButtons onClick={(() => setPage(() => page - 1))} disabled={!(page - 1)}>Назад</TableButtons>
+                <TableButtons>{page}</TableButtons>
+                <TableButtons onClick={(() => setPage(() => page + 1))}>Вперед</TableButtons>
+            </div>
         </>
     )
 }

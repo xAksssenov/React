@@ -1,21 +1,42 @@
-export const Home = () => {
+import styled from "styled-components";
+
+const Review = styled.div`
+    border: 1px solid #ddd;
+    padding: 0.5em;
+    margin: 1rem 10rem;
+    border-radius: 1rem;
+    background-color: var(--theme-text);
+    color: var(--theme);
+    transition: background-color 0.25s, color 0.25s;
+
+    .review__comment {
+    margin-top: 0;
+    }
+
+    .review__author {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    }
+`
+
+export const Reviews = () => {
     return (
         <>
             <h1>Отзывы магазина</h1>
-            <div className="review">
+            <Review>
                 <p className="review__author">Иван Петров</p>
                 <p className="review__comment">Отличные кроссовки! Быстрая доставка, отличное качество материалов и стильный дизайн. Рекомендую этот магазин!</p>
-            </div>
-            <div className="review">
+            </Review>
+            <Review>
                 <p className="review__author">Анна Сидорова</p>
                 <p className="review__comment">Заказывала кроссовки для тренировок. Очень удобные, подошли по размеру. Сервис на высоте, оперативно отвечают на вопросы. В следующий раз обязательно снова здесь закажу.</p>
-            </div>
-            <div className="review">
+            </Review>
+            <Review>
                 <p className="review__author">Дмитрий Иванов</p>
                 <p className="review__comment">Магазин имеет большой выбор кроссовок различных брендов. Понравилось, что есть подробные описания и фотографии товаров. Доставка была быстрой, кроссовки соответствуют ожиданиям.</p>
-            </div>
+            </Review>
         </>
     )
 }
 
-export default Home;
+export default Reviews;
