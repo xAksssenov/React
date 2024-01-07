@@ -73,6 +73,22 @@ const GlobalStyle = createGlobalStyle`
   p {
     font-size: 1.2rem;
   }
+
+  form {
+    margin: 20px 0;
+  }
+
+  input {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 1em;
+  }
+
+  button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }
 `
 
 export default GlobalStyle;
