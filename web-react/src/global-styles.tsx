@@ -73,6 +73,12 @@ const GlobalStyle = createGlobalStyle`
   p {
     font-size: 1.2rem;
   }
+
+  button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }
 `
 
 export default GlobalStyle;
