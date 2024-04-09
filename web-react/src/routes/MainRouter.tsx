@@ -1,8 +1,8 @@
 import { Navigate, RouteObject, useRoutes } from 'react-router-dom';
-import Home from '../components/Pages/Home';
-import Products from '../components/Pages/Products';
-import Contacts from '../components/Pages/Contacts';
-import Reviews from '../components/Pages/Reviews';
+import Home from '../Pages/Home';
+import Products from '../Pages/Products';
+import Contacts from '../Pages/Contacts';
+import Reviews from '../Pages/Reviews';
 import { HOME_ROUTE, CONTACTS_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE } from './configs';
 
 const MainRouter = ({ isAuth = false }) => {
