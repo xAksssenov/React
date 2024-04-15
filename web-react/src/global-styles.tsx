@@ -79,6 +79,6 @@ const GlobalStyle = createGlobalStyle`
     color: #666;
     cursor: not-allowed;
   }
-`
+`;
 
 export default GlobalStyle;

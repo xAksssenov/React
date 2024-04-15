@@ -17,7 +17,7 @@ a {
   font-size: 1.5em;
   color: #646cff;
   text-decoration: inherit;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 a:hover {
   transform: translateY(-5px);

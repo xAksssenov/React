@@ -16,16 +16,21 @@ const NavbarWrapper = styled.div`
   padding: 1rem;
   background-color: var(--theme-text);
   color: var(--theme);
-  transition: background-color 0.25s, color 0.25s;
-`
+  transition:
+    background-color 0.25s,
+    color 0.25s;
+`;
 
 const NavLink = styled(Link)`
   text-decoration: none;
   background-color: var(--theme-text);
   color: var(--theme);
-  transition: background-color 0.25s, color 0.25s, transform 0.3s ease;
+  transition:
+    background-color 0.25s,
+    color 0.25s,
+    transform 0.3s ease;
   font-weight: bold;
-`
+`;
 
 const NavButton = styled.button`
   border-radius: 8px;
@@ -36,7 +41,9 @@ const NavButton = styled.button`
   font-family: inherit;
   background-color: var(--theme);
   color: var(--theme-text);
-  transition: background-color 0.25s, color 0.25s;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
   cursor: pointer;
 
   &:hover {
@@ -44,12 +51,12 @@ const NavButton = styled.button`
     background-color: ${({ theme }) => theme.buttonBackgroundHover};
     color: ${({ theme }) => theme.buttonTextHover};
   }
-`
+`;
 
 const Navbar: React.FC<NavbarProps> = ({ isAuth, setIsAuth, toggleTheme }) => {
   const click = () => {
-    setIsAuth((prev) => !prev)
-  }
+    setIsAuth((prev) => !prev);
+  };
 
   return (
     <NavbarWrapper>
@@ -60,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuth, setIsAuth, toggleTheme }) => {
       <NavButton onClick={toggleTheme}>Сменить тему</NavButton>
       <NavButton onClick={click}>{isAuth ? 'Выйти' : 'Войти'}</NavButton>
     </NavbarWrapper>
-  )
-}
+  );
+};
 
 export default Navbar;
