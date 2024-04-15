@@ -1,55 +1,31 @@
 import { FC, useEffect, useState } from "react"
 import axios from "axios"
 import { useInView } from "react-intersection-observer"
-import styled from "styled-components"
 import { ProductCard } from "../ProductCard"
-
-const PaginationContainer = styled.div`
-  max-width: 60vw;
-  margin: 0 auto;
-`
-
-const Pagination = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5em;
-`
-
-const LoadingText = styled.div`
-    text-align: center;
-    font-size: 1.4em;
-    margin: 1em 0;
-    color: var(--theme);
-`
-
-const LoadingInView = styled.div`
-    height: 3em;
-    background-color: var(--theme-text);
-    border-radius: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--theme);
-`
-
-interface DataType {
-    country: string
-    name: string
-}
+import { IDataType } from "./university"
+import { PaginationContainer, Pagination, LoadingText, LoadingInView } from '../../global-styles'
 
 const LIMIT_LIST_SCHOOL = 10
 
 export const DynamicPagination: FC = () => {
     const [page, setPage] = useState<number>(1)
-    const [dataSource, setDataSource] = useState<DataType[]>([])
-    const [loading] = useState(false)
+    const [dataSource, setDataSource] = useState<IDataType[]>([])
+    const [loading, setLoading] = useState(false)
 
     const getUniversity = async (page: number, limit: number) => {
-        const offset = (page - 1) * limit
-        const response = await axios.get(`http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_LIST_SCHOOL}`)
-        setDataSource((prev) => [...prev, ...response.data])
-        return response.data
+        try {
+            setLoading(true)
+            const offset = (page - 1) * limit
+            const response = await axios.get(
+                `http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_LIST_SCHOOL}`
+            )
+
+            setDataSource((prev) => [...prev, ...response.data])
+        } catch (error) {
+            console.log('Error fetching universities:', error)
+        } finally {
+            setLoading(false)
+        }
     }
 
     useEffect(() => {
@@ -58,8 +34,8 @@ export const DynamicPagination: FC = () => {
     
     const { ref, inView } = useInView({
         threshold: 1.0,
-    });
-    
+    })
+
     useEffect(() => {
         if (inView && !loading) {
             setPage((prev: number) => prev + 1)

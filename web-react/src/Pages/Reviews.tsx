@@ -1,23 +1,4 @@
-import styled from "styled-components";
-
-const Review = styled.div`
-    border: 1px solid #ddd;
-    padding: 0.5em;
-    margin: 1rem 10rem;
-    border-radius: 1rem;
-    background-color: var(--theme-text);
-    color: var(--theme);
-    transition: background-color 0.25s, color 0.25s;
-
-    .review__comment {
-    margin-top: 0;
-    }
-
-    .review__author {
-    font-weight: bold;
-    margin-bottom: 0.5em;
-    }
-`
+import { Review } from "../global-styles"
 
 export const Reviews = () => {
     return (

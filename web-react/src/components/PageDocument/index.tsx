@@ -1,6 +1,6 @@
 import { Page, Text, View, Document, StyleSheet, Image } from "@react-pdf/renderer";
 
-interface DocumentProps {
+interface IDocumentProps {
     name: string
     text: string
     picture: FileList
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     },
 })
 
-const PageDocument: React.FC<DocumentProps> = ({ name, text, picture }) => {
+const PageDocument: React.FC<IDocumentProps> = ({ name, text, picture }) => {
     const pictureData = picture && picture.length > 0 ? URL.createObjectURL(picture[0]) : null
 
     return (
