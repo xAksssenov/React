@@ -1,23 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components"
+import { Home } from "../global-styles"
 
 interface StyledProps {
   ImgWidth?: string;
   src?: string;
   alt?: string;
 }
-
-const Home = styled.div`
-  margin: 0 8vw;
-  .home__p {
-    background-color: var(--theme-text);
-    color: var(--theme);
-    transition:
-      background-color 0.25s,
-      color 0.25s;
-    padding: 1em;
-    border-radius: 2em;
-  }
-`;
 
 const ImgHome = styled.img<StyledProps>`
   width: ${({ ImgWidth }) => (ImgWidth ? ImgWidth : '100px')};

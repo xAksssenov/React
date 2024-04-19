@@ -1,62 +1,8 @@
-import styled from 'styled-components';
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
-import PageDocument from '../components/PageDocument';
-
-const Contacts = styled.div`
-  margin: 1vw 33vw;
-  border-radius: 2em;
-  padding: 0.2em;
-  background-color: var(--theme-text);
-  color: var(--theme);
-  transition:
-    background-color 0.25s,
-    color 0.25s;
-`;
-
-const ContactsButton = styled.button`
-  background-color: var(--theme);
-  color: var(--theme-text);
-  transition:
-    background-color 0.25s,
-    color 0.25s;
-`;
-
-const ContactsInputLabel = styled.label`
-  background-color: var(--theme);
-  color: var(--theme-text);
-  transition:
-    background-color 0.25s,
-    color 0.25s;
-  margin-bottom: 1em;
-  padding: 1em;
-  border-radius: 2em;
-  display: inline-block;
-  position: relative;
-  width: fit-content;
-
-  input {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const ContactsInput = styled.input`
-  background-color: var(--theme);
-  color: var(--theme-text);
-  transition:
-    background-color 0.25s,
-    color 0.25s;
-  margin-bottom: 1em;
-  padding: 1em;
-  font-size: 1em;
-  border-radius: 2em;
-`;
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PageDocument from "../components/PageDocument";
+import { Contacts, ContactsButton, ContactsInput, ContactsInputLabel } from "../global-styles";
 
 interface IMyForm {
   name: string;
