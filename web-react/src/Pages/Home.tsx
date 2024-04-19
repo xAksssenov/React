@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { Home } from "../global-styles"
+import styled from 'styled-components';
+import { Home } from '../global-styles';
 
 interface StyledProps {
   ImgWidth?: string;

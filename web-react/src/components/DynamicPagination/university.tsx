@@ -1,4 +1,4 @@
 export interface IDataType {
-    country: string,
-    name: string,
+  country: string;
+  name: string;
 }

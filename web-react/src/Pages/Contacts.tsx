@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import PageDocument from "../components/PageDocument";
-import { Contacts, ContactsButton, ContactsInput, ContactsInputLabel } from "../global-styles";
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PageDocument from '../components/PageDocument';
+import { Contacts, ContactsButton, ContactsInput, ContactsInputLabel } from '../global-styles';
 
 interface IMyForm {
   name: string;

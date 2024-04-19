@@ -1,10 +1,10 @@
-import { NavButton, NavLink, NavbarWrapper } from '../../global-styles'
-import { CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE } from '../../routes/configs'
+import { NavButton, NavLink, NavbarWrapper } from '../../global-styles';
+import { CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE } from '../../routes/configs';
 
 interface NavbarProps {
-  isAuth: boolean
-  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>
-  toggleTheme: () => void
+  isAuth: boolean;
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleTheme: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isAuth, setIsAuth, toggleTheme }) => {

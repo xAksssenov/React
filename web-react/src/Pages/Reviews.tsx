@@ -1,4 +1,4 @@
-import { Review } from "../global-styles"
+import { Review } from '../global-styles';
 
 export const Reviews = () => {
   return (
