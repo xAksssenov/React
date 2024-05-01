@@ -1,17 +1,16 @@
-import { NavButton, NavLink, NavbarWrapper } from '../../global-styles'
-import { CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE } from '../../routes/configs'
+import { NavButton, NavLink, NavbarWrapper } from '../../global-styles';
+import { CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE } from '../../routes/configs';
 
 interface NavbarProps {
-  isAuth: boolean
-  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>
-  toggleTheme: () => void
+  isAuth: boolean;
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleTheme: () => void;
 }
-
 
 const Navbar: React.FC<NavbarProps> = ({ isAuth, setIsAuth, toggleTheme }) => {
   const click = () => {
-    setIsAuth((prev) => !prev)
-  }
+    setIsAuth((prev) => !prev);
+  };
 
   return (
     <NavbarWrapper>
@@ -22,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuth, setIsAuth, toggleTheme }) => {
       <NavButton onClick={toggleTheme}>Сменить тему</NavButton>
       <NavButton onClick={click}>{isAuth ? 'Выйти' : 'Войти'}</NavButton>
     </NavbarWrapper>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
