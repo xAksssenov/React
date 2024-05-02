@@ -1,7 +1,39 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+       registerType: "prompt",
+       includeAssets: ["logo.ico", "apple-touch-icon.png", "masked-icon.svg"],
+       manifest: {
+          name: "streatbear",
+          short_name: "streatbear",
+          description: "streatbear - site for resale boots",
+          theme_color: "#ffffff",
+          start_url: "/",
+          icons: [
+            {
+              src: 'boots192.png',
+              sizes: '192x120',
+              type: 'image/png'
+            },
+            {
+              src: 'boots512.png',
+              sizes: '512x321',
+              type: 'image/png'
+            },
+            {
+              src: 'boots512.png',
+              sizes: '512x321',
+              type: 'image/png',
+              purpose: 'any maskable'
+            }
+          ],
+       },
+    }),
+ ],
 })

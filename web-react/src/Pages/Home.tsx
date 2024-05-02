@@ -22,7 +22,7 @@ export const HomePage = () => {
           стиль и индивидуальность. Подписывайтесь на наш профиль, чтобы быть в курсе новых поступлений и представлений
           в мире кроссовок. Не упустите шанс сделать свой образ уникальным с помощью Street Bear!
         </p>
-        <ImgHome src="src/assets/img/sneakers.png" ImgWidth="500px" alt="" />
+        <ImgHome src="/sneakers.png" ImgWidth="500px" alt="" />
         <p className="home__p">
           На осень 2018 года сеть насчитывает 34 магазина Street Bear, пять магазинов Street Bear KIDS и два магазина
           Street Bear SPORT, расположенные в Москве, Санкт-Петербурге, Екатеринбурге, Воронеже, Краснодаре,
