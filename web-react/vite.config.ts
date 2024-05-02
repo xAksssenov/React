@@ -18,17 +18,17 @@ export default defineConfig({
           icons: [
             {
               src: 'boots192.png',
-              sizes: '192x120',
+              sizes: '192x192',
               type: 'image/png'
             },
             {
-              src: 'boots512.png',
-              sizes: '512x321',
+              src: 'nike512.png',
+              sizes: '512x512',
               type: 'image/png'
             },
             {
-              src: 'boots512.png',
-              sizes: '512x321',
+              src: 'nike512.png',
+              sizes: '512x512',
               type: 'image/png',
               purpose: 'any maskable'
             }

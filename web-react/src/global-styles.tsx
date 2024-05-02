@@ -2,13 +2,15 @@ import { Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
- @media screen and (max-width: 700px) {
+ @media (max-width: 700px) {
     html {
       font-size: 14px;
     }
 
     h1 {
+      width: fit-content;
       font-size: 22px;
+      margin: 1rem auto;
     }
 
     .home__p {
@@ -201,6 +203,10 @@ export const Card = styled.div`
   &:hover {
     transform: translateY(-4px);
   }
+
+  @media (max-width: 700) {
+    margin: 1rem 2rem;
+  }
 `;
 
 export const CardTitle = styled.div`
@@ -226,6 +232,10 @@ export const Home = styled.div`
       color 0.25s;
     padding: 1em;
     border-radius: 2em;
+  }
+
+  @media (max-width: 700) {
+    margin: 1rem 2rem;
   }
 `;
 
@@ -266,10 +276,10 @@ export const NavbarWrapper = styled.div`
     background-color 0.25s,
     color 0.25s;
 
-    @media (max-width: 700px) {
-      flex-direction: column;
-      gap: 1em;
-      font-size: 14px;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 1em;
+    font-size: 14px;
   }
 `;
 
