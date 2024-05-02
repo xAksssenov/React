@@ -2,6 +2,22 @@ import { Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+ @media (max-width: 700px) {
+    html {
+      font-size: 14px;
+    }
+
+    h1 {
+      width: fit-content;
+      font-size: 22px;
+      margin: 1rem auto;
+    }
+
+    .home__p {
+      padding: 0.5em;
+    }
+ }
+
   :root {
     --main-background: #242424;
     --main-text: rgba(255, 255, 255, 0.87);
@@ -93,6 +109,10 @@ export const Pagination = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5em;
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const LoadingText = styled.div`
@@ -122,6 +142,10 @@ export const Contacts = styled.div`
   transition:
     background-color 0.25s,
     color 0.25s;
+
+  @media (max-width: 700px) {
+    margin: 1rem 2rem;
+  }
 `;
 
 export const ContactsButton = styled.button`
@@ -179,6 +203,10 @@ export const Card = styled.div`
   &:hover {
     transform: translateY(-4px);
   }
+
+  @media (max-width: 700) {
+    margin: 1rem 2rem;
+  }
 `;
 
 export const CardTitle = styled.div`
@@ -205,6 +233,10 @@ export const Home = styled.div`
     padding: 1em;
     border-radius: 2em;
   }
+
+  @media (max-width: 700) {
+    margin: 1rem 2rem;
+  }
 `;
 
 export const Review = styled.div`
@@ -226,6 +258,10 @@ export const Review = styled.div`
     font-weight: bold;
     margin-bottom: 0.5em;
   }
+
+  @media (max-width: 700px) {
+    margin: 1rem 2rem;
+  }
 `;
 
 export const NavbarWrapper = styled.div`
@@ -239,6 +275,12 @@ export const NavbarWrapper = styled.div`
   transition:
     background-color 0.25s,
     color 0.25s;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 1em;
+    font-size: 14px;
+  }
 `;
 
 export const NavLink = styled(Link)`
