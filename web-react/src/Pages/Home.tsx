@@ -9,6 +9,10 @@ interface StyledProps {
 
 const ImgHome = styled.img<StyledProps>`
   width: ${({ ImgWidth }) => (ImgWidth ? ImgWidth : '100px')};
+
+  @media screen and (max-width: 700px) {
+    width: 250px;
+  }
 `;
 
 export const HomePage = () => {
