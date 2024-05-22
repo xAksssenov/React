@@ -1,16 +1,26 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
 import { ProductCard } from '../ProductCard';
 import { IDataType } from './university';
 import { PaginationContainer, Pagination, LoadingText, LoadingInView } from '../../global-styles';
+import { AuthContext } from '../../services/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const LIMIT_LIST_SCHOOL = 10;
 
 export const DynamicPagination: FC = () => {
+  const { isAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [page, setPage] = useState<number>(1);
   const [dataSource, setDataSource] = useState<IDataType[]>([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/auth');
+    }
+  }, [isAuth, navigate]);
 
   const getUniversity = async (page: number, limit: number) => {
     try {
@@ -29,8 +39,10 @@ export const DynamicPagination: FC = () => {
   };
 
   useEffect(() => {
-    getUniversity(page, LIMIT_LIST_SCHOOL);
-  }, [page]);
+    if (isAuth) {
+      getUniversity(page, LIMIT_LIST_SCHOOL);
+    }
+  }, [page, isAuth]);
 
   const { ref, inView } = useInView({
     threshold: 1.0,
@@ -42,16 +54,18 @@ export const DynamicPagination: FC = () => {
     }
   }, [inView, loading]);
 
+  if (!isAuth) return null;
+
   return (
     <PaginationContainer>
-      <h1>Cтраница университетов</h1>
+      <h1>Страница университетов</h1>
       <Pagination>
         {dataSource.map((university) => (
           <ProductCard data={university} key={university.name}></ProductCard>
         ))}
       </Pagination>
       {loading && <LoadingText>Загрузка...</LoadingText>}
-      <LoadingInView ref={ref}>Дождитеcь загрузки...</LoadingInView>
+      <LoadingInView ref={ref}>Дождитесь загрузки...</LoadingInView>
     </PaginationContainer>
   );
 };
