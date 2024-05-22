@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { Home } from '../global-styles';
+import authInstance from '../services/authInstance';
+import { useEffect } from 'react';
 
 interface StyledProps {
   ImgWidth?: string;
@@ -15,7 +17,18 @@ const ImgHome = styled.img<StyledProps>`
   }
 `;
 
-export const HomePage = () => {
+export const HomePage: React.FC = () => {
+  const getUser = async () => {
+    try {
+      await authInstance.get('users/current/');
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
   return (
     <>
       <h1>Главная страница магазина</h1>

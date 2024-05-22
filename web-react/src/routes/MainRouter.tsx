@@ -3,13 +3,19 @@ import Home from '../Pages/Home';
 import Products from '../Pages/Products';
 import Contacts from '../Pages/Contacts';
 import Reviews from '../Pages/Reviews';
-import { HOME_ROUTE, CONTACTS_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE } from './configs';
+import LoginForm from '../Pages/LoginForm';
+import { HOME_ROUTE, CONTACTS_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE, AUTH_ROUTE } from './configs';
 
-const MainRouter = ({ isAuth = false }) => {
+interface MainRouterProps {
+  isAuth: boolean;
+}
+
+const MainRouter: React.FC<MainRouterProps> = ({ isAuth }) => {
   const basedPath: RouteObject[] = [
     { path: HOME_ROUTE, element: <Home /> },
     { path: CONTACTS_ROUTE, element: <Contacts /> },
     { path: REVIEWS_ROUTE, element: <Reviews /> },
+    { path: AUTH_ROUTE, element: <LoginForm /> },
     { path: '*', element: <Navigate to="/" /> },
   ];
 

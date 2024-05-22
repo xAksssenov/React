@@ -1,15 +1,21 @@
+import { useNavigate } from 'react-router-dom';
 import { NavButton, NavLink, NavbarWrapper } from '../../global-styles';
 import { CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE } from '../../routes/configs';
+import { useContext } from 'react';
+import { AuthContext } from '../../services/AuthProvider';
 
 interface NavbarProps {
-  isAuth: boolean;
-  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
   toggleTheme: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isAuth, setIsAuth, toggleTheme }) => {
-  const click = () => {
-    setIsAuth((prev) => !prev);
+const Navbar: React.FC<NavbarProps> = ({ toggleTheme }) => {
+  const navigate = useNavigate();
+  const { isAuth, setIsAuth } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsAuth(false);
+    navigate('/auth');
   };
 
   return (
@@ -19,7 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuth, setIsAuth, toggleTheme }) => {
       <NavLink to={REVIEWS_ROUTE}>Отзывы</NavLink>
       <NavLink to={CONTACTS_ROUTE}>Контакты</NavLink>
       <NavButton onClick={toggleTheme}>Сменить тему</NavButton>
-      <NavButton onClick={click}>{isAuth ? 'Выйти' : 'Войти'}</NavButton>
+      <NavButton onClick={isAuth ? handleLogout : () => navigate('/auth')}>{isAuth ? 'Выйти' : 'Войти'}</NavButton>
     </NavbarWrapper>
   );
 };
